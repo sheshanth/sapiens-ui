@@ -56,7 +56,7 @@ function App() {
     fetch('http://localhost:5000/theme')
       .then(r => r.json())
       .then(result => {
-        dispatch(update(result.data[0].theme))
+        dispatch(update({color: result.data[0].theme}))
         setIsLoading(false)
       })
       .catch(console.log)
