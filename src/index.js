@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { configureStore } from '@reduxjs/toolkit'
+import { Provider } from 'react-redux'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import themeSlice from './slices/themeSlice'
+
+const reduxStore = configureStore({
+  reducer: {
+    theme: themeSlice
+  }
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={reduxStore}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
